@@ -2,8 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:namer_app/screens/Home.dart';
+import 'package:namer_app/widgets/AddItem.dart';
 import 'package:namer_app/widgets/InputField.dart';
 import 'package:namer_app/widgets/Item.dart';
+import 'package:namer_app/widgets/Items.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -59,6 +62,7 @@ class AppState extends ChangeNotifier {
 /// Home screen widget
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<AppState>();
@@ -81,41 +85,7 @@ class HomeScreen extends StatelessWidget {
             ],
           )
         ),
-        body: Column(
-          children: [
-            InputField(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.00, vertical: 5),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  style: TextStyle(
-                      fontSize: 25.00,
-                      fontWeight: FontWeight.bold
-                  ),
-                  "All ToDos",
-                ),
-              ),
-            ),
-            Expanded(
-              child: ListView(
-                children: [
-                  Item(),
-                  Item(),
-                  Item(),
-                  Item(),
-                  Item(),
-                  Item(),
-                  Item(),
-                  Item(),
-                  Item(),
-                  Item(),
-                  Item()
-                ],
-              ),
-            )
-          ],
-        )
+        body: Home()
       ),
     );
   }

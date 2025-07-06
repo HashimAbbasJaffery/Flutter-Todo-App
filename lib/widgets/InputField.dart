@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
+
+  Function(String) onChanged;
+  InputField({ required this.onChanged });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,6 +14,9 @@ class InputField extends StatelessWidget {
           color: Colors.white
         ),
         child: TextField(
+          onChanged: (value) => {
+            onChanged(value)
+          },
           decoration: InputDecoration(
             contentPadding: EdgeInsets.all(0),
             prefixIcon: Padding(
